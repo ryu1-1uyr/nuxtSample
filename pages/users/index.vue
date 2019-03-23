@@ -2,34 +2,19 @@
   <section class="container">
 
 
-    <div>
-    <app-logo/>
-    <app-logo/>
-    <app-logo/>
-    <app-logo/>
-    <app-logo/>
-    <app-logo/>
-    <br>
-    </div>
+    <!--<div>-->
+    <!--<app-logo/>-->
+    <!--<app-logo/>-->
+    <!--<app-logo/>-->
+    <!--<app-logo/>-->
+    <!--<app-logo/>-->
+    <!--<app-logo/>-->
+    <!--<br>-->
+    <!--</div>-->
 
-    <div>
-      <app-logo/>
-      <app-logo/>
-      <app-logo/>
-      <app-logo/>
-      <app-logo/>
-      <app-logo/>
-      <br>
-    </div>
-    <div>
-      <app-logo/>
-      <app-logo/>
-      <app-logo/>
-      <app-logo/>
-      <app-logo/>
-      <app-logo/>
-      <br>
-    </div>
+
+    <p>count={{count}}</p><br>
+    <button @click="addCount">asdasdasdasdasd</button>
 
   </section>
 </template>
@@ -37,9 +22,28 @@
 <script>
 import AppLogo from '~/components/AppLogo.vue'
 
+// export default {
+//   components: {
+//     AppLogo
+//   },
+//   computed: {
+//
+//   },
+//   methods: {
+//     addCount (e) {
+//       // this.$store.commit('counter/add')
+//     }
+//   }
+// }
+
 export default {
-  components: {
-    AppLogo
+  computed: {
+    count () { return this.$store.state.counter.count }
+  },
+  methods: {
+    addCount (e) {
+      this.$store.commit('counter/add')
+    }
   }
 }
 </script>
