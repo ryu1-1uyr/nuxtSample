@@ -13,7 +13,7 @@
 
 <script>
   import dogApi from '@/api/dog'
-  import {mapState} from 'vuex';
+  import {mapState} from 'vuex'
 
   export default {
     async fetch({store}) {

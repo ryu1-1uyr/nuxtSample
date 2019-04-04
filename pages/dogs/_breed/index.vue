@@ -30,7 +30,6 @@
 
 <style>
   img {
-    /*width: 110px;*/
     padding: 3px;
   }
 </style>
