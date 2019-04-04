@@ -1,6 +1,8 @@
-# sample
+# 犬を見る
 
 > Nuxt.js project
+
+> 犬の画像をひたすら表示するだけ
 
 ## Build Setup
 
@@ -19,5 +21,6 @@ $ npm start
 $ npm run generate
 ```
 
-For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
+
+[参考にしたやつ](https://luftgarden.work/tut-nuxt-dog-part1/).
 
