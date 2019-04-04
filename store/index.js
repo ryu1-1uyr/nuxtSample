@@ -1,9 +1,16 @@
-export const state = () => ({
-  count: 0
-})
+import Vuex from 'vuex'
 
-export const mutations = {
-  add (state) {
-    state.count += 1
-  }
-}
+const appStore = () => {
+  return new Vuex.Store({
+    state: {
+      breed_list: {},
+    },
+    mutations: {
+      breed_list_update(state, payload) {
+        state.breed_list = {...payload}
+      },
+    }
+  })
+};
+
+export default appStore;
