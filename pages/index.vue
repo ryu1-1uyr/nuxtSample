@@ -1,28 +1,29 @@
 <template>
-  <div>
-    <nav class="navbar">
-      <div class="container">
-        <div class="navbar-brand">
-          <nuxt-link to="/breeds" class="navbar-item">sample dog</nuxt-link>
-          <span class="navbar-burger burger" data-target="navbarMenu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </div>
+  <section class="container">
+    <div class="columns is-multiline">
+
+      <!-- v-for で breed_list からループ出力　mapstateで名前をさぶすてーとと揃えた時は直接呼べるっぽい -->
+      <div v-for="(item, i) in breed_list" v-bind:key='i' class='column is-2'>
+        <a class="button">{{ i }}</a>
       </div>
-    </nav>
-  </div>
+    </div>
+  </section>
 </template>
+
 
 <script>
   import dogApi from '@/api/dog'
+  import {mapState} from 'vuex';
 
   export default {
     async fetch({store}) {
       let json = await dogApi.breeds();
-      store.commit('breed_list_update', json)
+      store.commit('breed_list_update', json)//axiosで取ってきたjsonをデータストアにのっける
     },
+    computed: mapState(['breed_list']),
+    // 複雑なロジックには算出プロパティを使うべきらしいのでmethodじゃなくてcomputedつかう(https://jp.vuejs.org/v2/guide/computed.html)
+    // mapState ヘルパー vuexで作ったデータストアなのでvuexのめそっどから呼んでるよ
+    //ステートサブツリーの名前と同じ場合は、文字列配列を mapState に渡すこともできますらしいです
   }
 </script>
 
